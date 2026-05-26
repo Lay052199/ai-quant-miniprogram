@@ -1,0 +1,138 @@
+<view class="page-container">
+  <view class="hero-card">
+    <view class="hero-title">AI 量化回测助手</view>
+    <view class="hero-desc">基于 FastAPI 回测接口的微信小程序前端，仅用于历史研究与模拟分析。</view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">回测参数</view>
+
+    <view class="form-item">
+      <view class="form-label">股票代码</view>
+      <input class="form-input" type="text" value="{{symbol}}" placeholder="请输入股票代码" bindinput="onInputSymbol" />
+    </view>
+
+    <view class="form-grid">
+      <view class="form-item form-half">
+        <view class="form-label">开始日期</view>
+        <input class="form-input" type="text" value="{{startDate}}" placeholder="YYYYMMDD" bindinput="onInputStartDate" />
+      </view>
+      <view class="form-item form-half">
+        <view class="form-label">结束日期</view>
+        <input class="form-input" type="text" value="{{endDate}}" placeholder="YYYYMMDD" bindinput="onInputEndDate" />
+      </view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">策略选择</view>
+      <picker mode="selector" range="{{strategyOptions}}" value="{{strategyIndex}}" bindchange="onChangeStrategy">
+        <view class="picker-box">{{strategyOptions[strategyIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="form-grid">
+      <view class="form-item form-half">
+        <view class="form-label">初始资金</view>
+        <input class="form-input" type="digit" value="{{initialCash}}" bindinput="onInputInitialCash" />
+      </view>
+      <view class="form-item form-half">
+        <view class="form-label">手续费</view>
+        <input class="form-input" type="digit" value="{{commissionRate}}" bindinput="onInputCommissionRate" />
+      </view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">滑点</view>
+      <input class="form-input" type="digit" value="{{slippageRate}}" bindinput="onInputSlippageRate" />
+    </view>
+
+    <block wx:if="{{strategyOptions[strategyIndex] === '双均线策略'}}">
+      <view class="param-card">
+        <view class="param-title">双均线参数</view>
+        <view class="form-grid">
+          <view class="form-item form-half">
+            <view class="form-label">short_window</view>
+            <input class="form-input" type="number" value="{{shortWindow}}" bindinput="onInputShortWindow" />
+          </view>
+          <view class="form-item form-half">
+            <view class="form-label">long_window</view>
+            <input class="form-input" type="number" value="{{longWindow}}" bindinput="onInputLongWindow" />
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <button class="primary-button" bindtap="startBacktest" loading="{{loading}}" disabled="{{loading}}">
+      {{loading ? '回测中...' : '开始回测'}}
+    </button>
+
+    <view wx:if="{{errorMessage}}" class="error-box">
+      {{errorMessage}}
+    </view>
+  </view>
+
+  <block wx:if="{{result}}">
+    <view class="card">
+      <view class="section-title">核心指标</view>
+      <view class="metrics-grid">
+        <block wx:for="{{result.metricCards}}" wx:key="label">
+          <view class="metric-card">
+            <view class="metric-label">{{item.label}}</view>
+            <view class="metric-value">{{item.value}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">净值曲线概览</view>
+      <view class="curve-text">净值曲线数据点：{{result.equityCurveCount}} 个</view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">风险提示</view>
+      <block wx:if="{{result.riskReport.length}}">
+        <block wx:for="{{result.riskReport}}" wx:key="index">
+          <view class="risk-item">- {{item}}</view>
+        </block>
+      </block>
+      <block wx:else>
+        <view class="empty-text">暂无风险提示。</view>
+      </block>
+    </view>
+
+    <view class="card">
+      <view class="section-title">中文分析报告</view>
+      <view class="report-box">{{result.report}}</view>
+    </view>
+
+    <view class="card">
+      <view class="section-title">交易记录（前 10 条）</view>
+      <block wx:if="{{result.trades.length}}">
+        <scroll-view scroll-x class="trade-scroll">
+          <view class="trade-table">
+            <view class="trade-header trade-row">
+              <view class="trade-cell">买入日期</view>
+              <view class="trade-cell">卖出日期</view>
+              <view class="trade-cell">买入价</view>
+              <view class="trade-cell">卖出价</view>
+              <view class="trade-cell">收益</view>
+            </view>
+            <block wx:for="{{result.trades}}" wx:key="index">
+              <view class="trade-row">
+                <view class="trade-cell">{{item.buy_date || '--'}}</view>
+                <view class="trade-cell">{{item.sell_date || '--'}}</view>
+                <view class="trade-cell">{{item.buy_price || '--'}}</view>
+                <view class="trade-cell">{{item.sell_price || '--'}}</view>
+                <view class="trade-cell">{{item.profit || '--'}}</view>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+      </block>
+      <block wx:else>
+        <view class="empty-text">暂无交易记录。</view>
+      </block>
+    </view>
+  </block>
+</view>

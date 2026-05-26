@@ -1,0 +1,175 @@
+.hero-card {
+  background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 100%);
+  border-radius: 28rpx;
+  padding: 28rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 20rpx 50rpx rgba(15, 23, 42, 0.2);
+}
+
+.hero-title {
+  color: #ffffff;
+  font-size: 40rpx;
+  font-weight: 700;
+  margin-bottom: 12rpx;
+}
+
+.hero-desc {
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 24rpx;
+  line-height: 1.6;
+}
+
+.form-item {
+  margin-bottom: 20rpx;
+}
+
+.form-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20rpx;
+}
+
+.form-half {
+  flex: 1;
+}
+
+.form-label {
+  font-size: 26rpx;
+  color: #334155;
+  margin-bottom: 12rpx;
+  font-weight: 600;
+}
+
+.form-input,
+.picker-box {
+  background: #f8fafc;
+  border: 2rpx solid #dbe5f0;
+  border-radius: 18rpx;
+  min-height: 84rpx;
+  padding: 0 22rpx;
+  font-size: 28rpx;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.picker-box {
+  line-height: 84rpx;
+}
+
+.param-card {
+  background: #f8fbff;
+  border: 2rpx solid #d7e6fb;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  margin-bottom: 24rpx;
+}
+
+.param-title {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 16rpx;
+}
+
+.primary-button {
+  height: 88rpx;
+  line-height: 88rpx;
+  border-radius: 18rpx;
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 700;
+  margin-top: 12rpx;
+}
+
+.primary-button::after {
+  border: none;
+}
+
+.error-box {
+  margin-top: 20rpx;
+  padding: 18rpx 20rpx;
+  border-radius: 18rpx;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 26rpx;
+  line-height: 1.6;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18rpx;
+}
+
+.metric-card {
+  background: #f8fafc;
+  border: 2rpx solid #e2e8f0;
+  border-radius: 20rpx;
+  padding: 20rpx;
+}
+
+.metric-label {
+  font-size: 24rpx;
+  color: #64748b;
+  margin-bottom: 12rpx;
+}
+
+.metric-value {
+  font-size: 34rpx;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.curve-text {
+  font-size: 28rpx;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.risk-item {
+  font-size: 26rpx;
+  color: #334155;
+  line-height: 1.8;
+  margin-bottom: 10rpx;
+}
+
+.report-box {
+  white-space: pre-wrap;
+  font-size: 26rpx;
+  color: #1e293b;
+  line-height: 1.8;
+}
+
+.trade-scroll {
+  width: 100%;
+}
+
+.trade-table {
+  min-width: 920rpx;
+}
+
+.trade-row {
+  display: flex;
+  border-bottom: 2rpx solid #e2e8f0;
+}
+
+.trade-header {
+  background: #eff6ff;
+}
+
+.trade-cell {
+  width: 184rpx;
+  padding: 18rpx 14rpx;
+  font-size: 24rpx;
+  color: #1e293b;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.empty-text {
+  font-size: 26rpx;
+  color: #64748b;
+}
