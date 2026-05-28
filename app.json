@@ -4,6 +4,7 @@
   ],
   "window": {
     "navigationBarTitleText": "AI 量化回测助手",
+    "cloud": true,
     "navigationBarBackgroundColor": "#0f172a",
     "navigationBarTextStyle": "white",
     "backgroundColor": "#f4f7fb",
