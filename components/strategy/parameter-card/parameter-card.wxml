@@ -1,0 +1,7 @@
+<view class="parameter-card">
+  <view class="parameter-head">
+    <view class="parameter-name">{{item.label}} <text>{{item.value}}{{item.unit}}</text></view>
+    <view class="parameter-badge">{{item.badge}}</view>
+  </view>
+  <view class="parameter-impact">{{item.impact}}</view>
+</view>

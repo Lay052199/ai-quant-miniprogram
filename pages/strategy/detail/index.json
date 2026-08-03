@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "AI 量化回测助手",
+  "navigationBarBackgroundColor": "#f7f9ff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f5f7ff",
+  "usingComponents": {
+    "strategy-hero": "../../../components/strategy/strategy-hero/strategy-hero",
+    "section-card": "../../../components/strategy/section-card/section-card"
+  }
+}

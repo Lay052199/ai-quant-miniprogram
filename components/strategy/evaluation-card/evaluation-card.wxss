@@ -1,0 +1,19 @@
+.evaluation-card { display: grid; grid-template-columns: 1fr 1fr; gap: 12rpx; }
+.evaluation-column {
+  position: relative;
+  min-height: 138rpx;
+  overflow: hidden;
+  padding: 15rpx 20rpx;
+  box-sizing: border-box;
+  border: 1rpx solid rgba(51, 181, 102, .2);
+  border-radius: 20rpx;
+  background: rgba(244, 255, 249, .82);
+}
+.limitation { border-color: rgba(238, 79, 103, .18); background: rgba(255, 246, 247, .84); }
+.evaluation-title { color: #1e9c58; font-size: 22rpx; font-weight: 720; }
+.limitation .evaluation-title { color: #e5465e; }
+.evaluation-orb { position: absolute; right: 18rpx; top: 14rpx; width: 48rpx; height: 48rpx; line-height: 48rpx; border: 6rpx solid rgba(45, 183, 103, .08); border-radius: 50%; background: rgba(45, 183, 103, .1); text-align: center; font-size: 16rpx; }
+.limitation .evaluation-orb { background: rgba(238, 79, 103, .1); }
+.evaluation-line { margin-top: 6rpx; padding-right: 54rpx; color: #53617e; font-size: 17rpx; line-height: 1.35; }
+.evaluation-line text { margin-right: 8rpx; color: #2aaa65; }
+.limitation .evaluation-line text { color: #e94c64; }

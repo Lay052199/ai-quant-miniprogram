@@ -1,0 +1,13 @@
+<view class="process-flow">
+  <block wx:for="{{steps}}" wx:key="title">
+    <view class="process-step">
+      <view class="process-icon icon-{{item.icon}}">
+        <view class="glyph glyph-a"></view>
+        <view class="glyph glyph-b"></view>
+        <view class="glyph glyph-c"></view>
+      </view>
+      <view class="process-title">{{item.title}}</view>
+    </view>
+    <view wx:if="{{index < steps.length - 1}}" class="process-arrow">→</view>
+  </block>
+</view>

@@ -1,0 +1,153 @@
+<view class="page-shell">
+  <image class="home-background-art" src="/assets/backgrounds/home-bg.jpg" mode="aspectFill"></image>
+  <view class="ambient ambient-left"></view>
+  <view class="ambient ambient-right"></view>
+
+  <view class="hero-card">
+    <image class="hero-illustration" src="/assets/images/home-banner-chart.jpg" mode="aspectFill"></image>
+    <view class="hero-grid"></view>
+    <view class="hero-overlay"></view>
+    <view class="hero-copy">
+      <view class="hero-title">QuantLabAI 量化回测分析</view>
+      <view class="hero-desc">
+        <text class="hero-desc-line">面向金融专业学生和量化初学者的</text>
+        <text class="hero-desc-line">历史回测、风险分析与策略学习工具。</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="main-panel glass-panel">
+    <view class="form-section first-section">
+      <view class="section-title"><image class="module-icon" src="/assets/icons/stock-code.svg" mode="aspectFit"></image><text>股票代码</text></view>
+      <view class="stock-display-row {{stockStatus}}">
+        <input
+          class="stock-input"
+          type="number"
+          maxlength="6"
+          value="{{symbol}}"
+          bindinput="onSymbolInput"
+          bindblur="resolveStock"
+        />
+        <view class="stock-market-info">
+          <text class="stock-name">{{stockInfo ? stockInfo.name : (stockStatus === 'loading' ? '识别中…' : '--')}}</text>
+          <view class="stock-sparkline">
+            <view class="sparkline-segment sparkline-segment-1"></view>
+            <view class="sparkline-segment sparkline-segment-2"></view>
+            <view class="sparkline-segment sparkline-segment-3"></view>
+            <view class="sparkline-segment sparkline-segment-4"></view>
+            <view class="sparkline-segment sparkline-segment-5"></view>
+            <view class="sparkline-segment sparkline-segment-6"></view>
+          </view>
+          <text class="stock-change">{{stockInfo ? stockChangeDisplay : '--'}}</text>
+        </view>
+      </view>
+      <view wx:if="{{stockStatus !== 'success' && stockMessage}}" class="stock-feedback {{stockStatus}}">{{stockMessage}}</view>
+    </view>
+
+    <view class="form-section">
+      <view class="section-title"><image class="module-icon" src="/assets/icons/date-picker.svg" mode="aspectFit"></image><text>日期选择</text></view>
+      <view class="date-label-row">
+        <text>开始日期</text>
+        <text>结束日期</text>
+      </view>
+      <view class="date-row">
+        <picker class="date-picker" mode="date" value="{{startDateDisplay}}" bindchange="onStartDateChange">
+          <view class="date-field"><text>{{startDateDisplay}}</text><image class="field-tail-icon" src="/assets/icons/date-picker.svg" mode="aspectFit"></image></view>
+        </picker>
+        <text class="date-split">~</text>
+        <picker class="date-picker" mode="date" value="{{endDateDisplay}}" bindchange="onEndDateChange">
+          <view class="date-field"><text>{{endDateDisplay}}</text><image class="field-tail-icon" src="/assets/icons/date-picker.svg" mode="aspectFit"></image></view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="form-section">
+      <view class="section-title"><image class="module-icon" src="/assets/icons/strategy.svg" mode="aspectFit"></image><text>策略选择</text></view>
+      <view class="strategy-row">
+        <picker class="strategy-picker" mode="selector" range="{{strategyNames}}" value="{{strategyIndex}}" bindchange="onStrategyChange">
+          <view class="strategy-field"><text>{{strategy.name}}</text><view class="select-chevron"></view></view>
+        </picker>
+        <button class="library-button" bindtap="openStrategyLibrary"><image class="library-icon-image" src="/assets/icons/strategy.svg" mode="aspectFit"></image><text>策略库</text></button>
+      </view>
+    </view>
+
+    <view class="form-section">
+      <view class="section-title"><image class="module-icon" src="/assets/icons/strategy-desc.svg" mode="aspectFit"></image><text>当前策略说明</text></view>
+      <view class="strategy-explain-card">
+        <image class="strategy-explain-art" src="/assets/images/strategy-desc-illustration.jpg" mode="aspectFill"></image>
+        <view class="strategy-explain-fade"></view>
+        <view class="strategy-explain-content">
+          <view class="explain-line"><image class="bullet-icon" src="/assets/icons/bullet-principle.svg" mode="aspectFit"></image><text><text class="explain-label">原理：</text>{{strategy.principle}}</text></view>
+          <view class="explain-line"><image class="bullet-icon" src="/assets/icons/bullet-market.svg" mode="aspectFit"></image><text><text class="explain-label">适用行情：</text>{{strategy.market}}</text></view>
+          <view class="explain-line"><image class="bullet-icon" src="/assets/icons/bullet-risk.svg" mode="aspectFit"></image><text><text class="explain-label">失效场景：</text>{{strategy.failure}}</text></view>
+          <view class="explain-line"><image class="bullet-icon" src="/assets/icons/bullet-learning.svg" mode="aspectFit"></image><text><text class="explain-label">学习重点：</text>{{strategy.focus}}</text></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-section compact-section">
+      <view class="metric-grid">
+        <view class="overview-metric-card">
+          <image class="metric-icon-image" src="/assets/icons/capital.svg" mode="aspectFit"></image>
+          <view class="metric-body">
+            <text class="metric-label">初始资金</text>
+            <view class="metric-value-row">
+              <input class="metric-input large-input" type="digit" value="{{initialCashDisplay}}" bindinput="onInitialCashInput" />
+              <text class="metric-unit">CNY</text>
+            </view>
+          </view>
+        </view>
+        <view class="overview-metric-card">
+          <image class="metric-icon-image" src="/assets/icons/fee.svg" mode="aspectFit"></image>
+          <view class="metric-body">
+            <text class="metric-label">手续费</text>
+            <view class="metric-value-row">
+              <input class="metric-input" type="digit" value="{{commissionRate}}" bindinput="onCommissionInput" />
+              <text class="metric-unit">率</text>
+            </view>
+          </view>
+        </view>
+        <view class="overview-metric-card">
+          <image class="metric-icon-image" src="/assets/icons/slippage.svg" mode="aspectFit"></image>
+          <view class="metric-body">
+            <text class="metric-label">滑点</text>
+            <view class="metric-value-row">
+              <input class="metric-input" type="digit" value="{{slippageRate}}" bindinput="onSlippageInput" />
+              <text class="metric-unit">率</text>
+            </view>
+          </view>
+        </view>
+        <view class="overview-metric-card">
+          <image class="metric-icon-image" src="/assets/icons/period.svg" mode="aspectFit"></image>
+          <view class="metric-body">
+            <text class="metric-label">回测周期</text>
+            <view class="metric-value-row">
+              <text class="period-value">{{periodDays}}<text class="period-unit"> 天</text></text>
+              <text class="metric-unit">{{periodYears}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="form-section parameter-card">
+      <view class="parameter-heading"><image class="module-icon" src="/assets/icons/ma.svg" mode="aspectFit"></image><text>{{parameterSectionTitle}}</text></view>
+      <view class="param-grid">
+        <view class="param-item" wx:for="{{paramFields}}" wx:key="key">
+          <text class="param-label">{{item.label}}</text>
+          <view class="param-input-wrap">
+            <input class="param-value-input" type="digit" value="{{item.value}}" data-param="{{item.key}}" bindinput="onParamInput" />
+            <text wx:if="{{item.unit}}" class="param-unit">{{item.unit}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <button class="primary-action" bindtap="startBacktest" loading="{{loading}}" disabled="{{loading}}">
+      <view wx:if="{{!loading}}" class="cta-content"><view class="cta-play-icon"></view><text>开始回测分析</text></view>
+      <text wx:else>正在回测…</text>
+    </button>
+    <button class="health-button" bindtap="testHealth">检查后端连接</button>
+    <view wx:if="{{errorMessage}}" class="error-box">{{errorMessage}}</view>
+  </view>
+</view>

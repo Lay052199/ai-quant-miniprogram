@@ -1,0 +1,6 @@
+<view class="metric-card">
+  <view class="metric-label">{{label}}</view>
+  <view class="metric-value {{tone}}">{{value}}</view>
+  <view wx:if="{{hint}}" class="metric-hint">{{hint}}</view>
+  <view class="metric-accent {{tone}}"></view>
+</view>

@@ -1,0 +1,3 @@
+<view class="strategy-icon-shell" style="width:{{size}}rpx;height:{{size}}rpx;border-radius:{{size / 4}}rpx">
+  <image class="strategy-icon-image" src="{{src}}" mode="aspectFit" binderror="onError"></image>
+</view>

@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "历史表现",
+  "navigationBarBackgroundColor": "#f7f9ff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f5f7ff",
+  "usingComponents": {
+    "metric-card": "../../../components/strategy/metric-card/metric-card",
+    "chart-card": "../../../components/strategy/chart-card/chart-card",
+    "ec-canvas": "../../../ec-canvas/ec-canvas"
+  }
+}

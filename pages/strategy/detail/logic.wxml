@@ -1,0 +1,92 @@
+<view class="logic-page">
+  <image class="logic-background" src="/assets/backgrounds/home-bg.jpg" mode="aspectFill"></image>
+  <view class="logic-glow glow-one"></view>
+  <view class="logic-glow glow-two"></view>
+
+  <view class="logic-header">
+    <button class="back-button" bindtap="goBack"><view class="back-chevron"></view></button>
+    <view class="logic-title-wrap">
+      <view class="title-line"></view>
+      <view class="logic-title">深度解析</view>
+      <view class="title-line reverse"></view>
+    </view>
+    <view class="header-space"></view>
+  </view>
+
+  <strategy-header
+    strategy="{{teaching}}"
+    performance="{{performance}}"
+    has-performance="{{hasPerformance}}"
+  ></strategy-header>
+
+  <view class="analysis-stack">
+    <view class="analysis-section" aria-label="策略原理">
+      <view class="section-title"><text class="section-icon">⌁</text>策略核心逻辑</view>
+      <view class="logic-grid">
+        <view class="logic-primary-shell">
+          <logic-card item="{{teaching.logicCards[0]}}"></logic-card>
+          <formula-card formula="{{teaching.formula}}"></formula-card>
+        </view>
+        <logic-card item="{{teaching.logicCards[1]}}"></logic-card>
+        <logic-card item="{{teaching.logicCards[2]}}"></logic-card>
+      </view>
+    </view>
+
+    <view class="analysis-section">
+      <view class="section-title"><text class="section-icon">⇢</text>交易执行流程</view>
+      <process-flow steps="{{teaching.process}}"></process-flow>
+    </view>
+
+    <view class="analysis-section">
+      <view class="section-title"><text class="section-icon">ƒ</text>参数含义</view>
+      <view class="parameter-grid">
+        <parameter-card wx:for="{{teaching.parameters}}" wx:key="key" item="{{item}}"></parameter-card>
+      </view>
+    </view>
+
+    <view class="analysis-section">
+      <view class="section-title"><text class="section-icon">⌘</text>参数敏感性分析</view>
+      <sensitivity-table
+        labels="{{teaching.sensitivityLabels}}"
+        rows="{{sensitivityRows}}"
+      ></sensitivity-table>
+      <view class="section-hint">
+        <text class="hint-ai">AI</text>
+        短周期参数通常提高响应速度，但也更容易受到市场噪声影响；表格仅展示当前策略的真实分析结果。
+      </view>
+    </view>
+
+    <view class="dual-section">
+      <view class="analysis-section mechanism-section">
+        <view class="section-title"><text class="section-icon">⌁</text>策略形成机制</view>
+        <image class="mechanism-image" src="{{teaching.mechanismAsset}}" mode="widthFix"></image>
+        <view class="mechanism-legend">
+          <view wx:for="{{teaching.mechanismLegend}}" wx:key="*this">
+            <text class="legend-dot dot-{{index}}"></text>{{item}}
+          </view>
+        </view>
+      </view>
+      <view class="analysis-section market-section" aria-label="最佳使用环境，不适合">
+        <view class="section-title"><text class="section-icon">⌂</text>适配市场环境</view>
+        <market-card market="{{teaching.suitableMarket}}"></market-card>
+      </view>
+    </view>
+
+    <view class="analysis-section" aria-label="策略优势与风险提示">
+      <view class="section-title"><text class="section-icon">◎</text>策略评价</view>
+      <evaluation-card
+        advantages="{{teaching.advantages}}"
+        limitations="{{teaching.limitations}}"
+      ></evaluation-card>
+    </view>
+
+    <ai-comment-card comments="{{teaching.aiComment}}"></ai-comment-card>
+  </view>
+
+  <view wx:if="{{errorMessage}}" class="logic-error">{{errorMessage}}</view>
+  <view class="sticky-action">
+    <button class="primary-action" loading="{{loading}}" disabled="{{loading}}" bindtap="useStrategy">
+      <text class="play-mark">▶</text>使用该策略
+    </button>
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260">
+  <defs><linearGradient id="bgm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7faff"/><stop offset="1" stop-color="#f4efff"/></linearGradient></defs>
+  <rect width="720" height="260" rx="28" fill="url(#bgm)"/>
+  <path d="M36 126H688" stroke="#bac6e8" stroke-width="1.5" stroke-dasharray="6 7"/>
+  <path d="M42 112C91 89 130 108 171 96S241 57 284 71 346 123 392 111 451 61 496 77 560 130 607 98 654 60 684 67" fill="none" stroke="#526dff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M42 119C91 108 132 115 171 105S244 80 285 82 345 111 392 116 451 91 496 87 561 113 607 106 655 82 684 79" fill="none" stroke="#9b65ff" stroke-width="3.5" stroke-linecap="round"/>
+  <g stroke-linecap="round" stroke-width="9"><path d="M66 126V148" stroke="#89a2ff"/><path d="M96 126V160" stroke="#7694ff"/><path d="M126 126V142" stroke="#97acff"/><path d="M156 126V111" stroke="#b179ff"/><path d="M186 126V91" stroke="#a45fff"/><path d="M216 126V78" stroke="#9258f6"/><path d="M246 126V105" stroke="#aa70ff"/><path d="M276 126V145" stroke="#7997ff"/><path d="M306 126V164" stroke="#6d8fff"/><path d="M336 126V153" stroke="#7897ff"/><path d="M366 126V139" stroke="#8aa3ff"/><path d="M396 126V111" stroke="#ad73ff"/><path d="M426 126V88" stroke="#9a5dff"/><path d="M456 126V72" stroke="#8f55f2"/><path d="M486 126V93" stroke="#a96dff"/><path d="M516 126V142" stroke="#819cff"/><path d="M546 126V158" stroke="#7393ff"/><path d="M576 126V143" stroke="#829eff"/><path d="M606 126V112" stroke="#aa70ff"/><path d="M636 126V86" stroke="#9860fa"/></g>
+  <text x="45" y="35" fill="#526dff" font-size="17" font-family="sans-serif">DIF</text><text x="92" y="35" fill="#9860fa" font-size="17" font-family="sans-serif">DEA</text><text x="143" y="35" fill="#778fbf" font-size="17" font-family="sans-serif">动量柱</text>
+</svg>

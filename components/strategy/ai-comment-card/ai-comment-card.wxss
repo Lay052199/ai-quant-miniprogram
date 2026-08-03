@@ -1,0 +1,20 @@
+.ai-comment-card {
+  display: grid;
+  grid-template-columns: 104rpx 1fr;
+  gap: 16rpx;
+  padding: 18rpx 22rpx;
+  border: 1rpx solid rgba(130, 147, 218, .2);
+  border-radius: 20rpx;
+  background: linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(243, 245, 255, .82));
+  box-shadow: 0 14rpx 34rpx rgba(72, 91, 164, .09);
+}
+.ai-avatar { position: relative; width: 92rpx; height: 78rpx; margin-top: 14rpx; display: flex; align-items: center; justify-content: center; border-radius: 26rpx; background: radial-gradient(circle at 50% 44%, #fff 0, #eef1ff 58%, #dfe5ff 100%); box-shadow: inset 0 0 0 1rpx rgba(82, 109, 255, .14), 0 9rpx 18rpx rgba(79, 92, 193, .12); }
+.antenna { position: absolute; top: -15rpx; width: 4rpx; height: 18rpx; border-radius: 4rpx; background: #7d66ff; }
+.antenna::after { content: ""; position: absolute; left: -4rpx; top: -5rpx; width: 12rpx; height: 12rpx; border-radius: 50%; background: #526dff; }
+.robot-face { width: 60rpx; height: 42rpx; display: flex; align-items: center; justify-content: space-evenly; border: 4rpx solid #c9d3ff; border-radius: 16rpx; background: linear-gradient(135deg, #4b68d8, #5649b4); }
+.robot-eye { width: 9rpx; height: 9rpx; border-radius: 50%; background: #79f1ff; box-shadow: 0 0 8rpx rgba(121, 241, 255, .8); }
+.robot-ear { position: absolute; top: 32rpx; width: 8rpx; height: 20rpx; border-radius: 8rpx; background: #7b72e9; }
+.ear-left { left: 7rpx; }.ear-right { right: 7rpx; }
+.robot-base { position: absolute; bottom: 6rpx; width: 44rpx; height: 7rpx; border-radius: 50%; background: rgba(82, 109, 255, .18); }
+.ai-title { color: #172554; font-size: 24rpx; font-weight: 760; }
+.ai-paragraph { margin-top: 7rpx; color: #506082; font-size: 18rpx; line-height: 1.5; }

@@ -1,0 +1,5 @@
+<view class="formula-card">
+  <view class="formula-title">{{formula.title}}</view>
+  <view class="formula-line" wx:for="{{formula.lines}}" wx:key="*this">{{item}}</view>
+  <view class="formula-note">{{formula.note}}</view>
+</view>

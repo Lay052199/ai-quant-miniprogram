@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "AI 量化回测助手",
+  "navigationBarBackgroundColor": "#f7f9ff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f4f7ff",
+  "enablePullDownRefresh": false
+}

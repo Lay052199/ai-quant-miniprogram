@@ -1,0 +1,6 @@
+<view class="chart-card">
+  <view class="chart-heading"><view><view class="chart-title">{{title}}</view><view wx:if="{{subtitle}}" class="chart-subtitle">{{subtitle}}</view></view><slot name="action"></slot></view>
+  <view wx:if="{{loading}}" class="chart-state">正在读取真实数据…</view>
+  <view wx:elif="{{empty}}" class="chart-state">{{emptyText}}</view>
+  <view wx:else class="chart-body"><slot></slot></view>
+</view>

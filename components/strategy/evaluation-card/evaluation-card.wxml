@@ -1,0 +1,10 @@
+<view class="evaluation-card">
+  <view class="evaluation-column advantage">
+    <view class="evaluation-title">优势 <text class="evaluation-orb">赞</text></view>
+    <view class="evaluation-line" wx:for="{{advantages}}" wx:key="*this"><text>•</text>{{item}}</view>
+  </view>
+  <view class="evaluation-column limitation">
+    <view class="evaluation-title">局限 <text class="evaluation-orb">慎</text></view>
+    <view class="evaluation-line" wx:for="{{limitations}}" wx:key="*this"><text>•</text>{{item}}</view>
+  </view>
+</view>

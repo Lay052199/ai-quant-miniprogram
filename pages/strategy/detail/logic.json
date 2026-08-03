@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "AI 量化回测助手",
+  "navigationBarBackgroundColor": "#f7f9ff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f5f7ff",
+  "usingComponents": {
+    "strategy-header": "../../../components/strategy/strategy-header/strategy-header",
+    "logic-card": "../../../components/strategy/logic-card/logic-card",
+    "formula-card": "../../../components/strategy/formula-card/formula-card",
+    "process-flow": "../../../components/strategy/process-flow/process-flow",
+    "parameter-card": "../../../components/strategy/parameter-card/parameter-card",
+    "sensitivity-table": "../../../components/strategy/sensitivity-table/sensitivity-table",
+    "market-card": "../../../components/strategy/market-card/market-card",
+    "evaluation-card": "../../../components/strategy/evaluation-card/evaluation-card",
+    "ai-comment-card": "../../../components/strategy/ai-comment-card/ai-comment-card"
+  }
+}

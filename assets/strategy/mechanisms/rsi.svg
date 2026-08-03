@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260">
+  <defs><linearGradient id="bgr" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8faff"/><stop offset="1" stop-color="#f3f0ff"/></linearGradient></defs>
+  <rect width="720" height="260" rx="28" fill="url(#bgr)"/>
+  <rect x="38" y="38" width="644" height="52" rx="12" fill="#ffeef2" opacity=".8"/>
+  <rect x="38" y="174" width="644" height="48" rx="12" fill="#eaf9f1" opacity=".9"/>
+  <path d="M38 82H682" stroke="#ec6379" stroke-width="2" stroke-dasharray="7 7"/>
+  <path d="M38 181H682" stroke="#2bae69" stroke-width="2" stroke-dasharray="7 7"/>
+  <path d="M42 150C78 137 102 62 139 78S181 176 219 186 270 112 309 125 352 213 394 177 435 76 476 90 522 174 560 151 609 68 680 111" fill="none" stroke="#735cff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="219" cy="186" r="8" fill="#fff" stroke="#29aa66" stroke-width="3"/><circle cx="476" cy="90" r="8" fill="#fff" stroke="#ec5d75" stroke-width="3"/>
+  <text x="52" y="69" fill="#d84a62" font-size="18" font-family="sans-serif">超买 70</text><text x="52" y="211" fill="#23975a" font-size="18" font-family="sans-serif">超卖 30</text>
+</svg>

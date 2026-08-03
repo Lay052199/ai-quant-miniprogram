@@ -1,0 +1,10 @@
+<view class="market-card">
+  <view class="market-box suitable">
+    <view class="market-heading"><text>✓</text> 更适合</view>
+    <view class="market-line" wx:for="{{market.suitable}}" wx:key="*this"><text>•</text>{{item}}</view>
+  </view>
+  <view class="market-box unsuitable">
+    <view class="market-heading"><text>×</text> 不适合</view>
+    <view class="market-line" wx:for="{{market.unsuitable}}" wx:key="*this"><text>•</text>{{item}}</view>
+  </view>
+</view>

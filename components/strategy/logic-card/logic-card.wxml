@@ -1,0 +1,5 @@
+<view class="logic-card tone-{{item.tone}}">
+  <view class="logic-card-title">{{item.title}}</view>
+  <view class="logic-card-copy">{{item.description}}</view>
+  <view class="logic-card-accent"></view>
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "AI 量化回测助手",
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  }
+}

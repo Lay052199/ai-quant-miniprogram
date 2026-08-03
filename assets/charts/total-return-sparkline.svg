@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="52" viewBox="0 0 180 52" fill="none">
+  <defs>
+    <linearGradient id="line" x1="8" y1="42" x2="172" y2="8" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5A78F6"/>
+      <stop offset="1" stop-color="#876CF6"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="7" x2="0" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7968F5" stop-opacity=".14"/>
+      <stop offset="1" stop-color="#7968F5" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 42C16 41 19 38 27 39C34 40 38 35 46 36C54 37 57 32 65 34C73 36 78 30 86 32C94 34 98 27 106 29C114 31 119 24 127 25C135 26 140 18 148 20C157 22 163 12 172 9V52H8V42Z" fill="url(#area)"/>
+  <path d="M8 42C16 41 19 38 27 39C34 40 38 35 46 36C54 37 57 32 65 34C73 36 78 30 86 32C94 34 98 27 106 29C114 31 119 24 127 25C135 26 140 18 148 20C157 22 163 12 172 9" stroke="url(#line)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="86" cy="32" r="1.6" fill="#6C74F6" fill-opacity=".35"/>
+  <circle cx="172" cy="9" r="2.2" fill="#806CF6"/>
+  <circle cx="172" cy="9" r="4.5" fill="#806CF6" fill-opacity=".1"/>
+</svg>

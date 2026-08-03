@@ -1,0 +1,10 @@
+<view class="section-card {{tone}}">
+  <view class="section-heading">
+    <view class="section-title-wrap">
+      <image wx:if="{{icon}}" class="section-icon" src="{{icon}}" mode="aspectFit"></image>
+      <view><view class="section-title">{{title}}</view><view wx:if="{{subtitle}}" class="section-subtitle">{{subtitle}}</view></view>
+    </view>
+    <view wx:if="{{actionText}}" class="section-action" bindtap="onAction">{{actionText}} <text>›</text></view>
+  </view>
+  <view class="section-content"><slot></slot></view>
+</view>

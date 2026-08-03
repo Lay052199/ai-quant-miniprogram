@@ -1,0 +1,39 @@
+<view class="strategy-header">
+  <view class="header-copy">
+    <view class="identity-row">
+      <strategy-icon src="{{strategy.icon}}" size="58"></strategy-icon>
+      <view class="strategy-name">{{strategy.name}}</view>
+      <risk-tag label="{{strategy.risk}}" tone="{{strategy.riskTone}}"></risk-tag>
+    </view>
+    <view class="description">{{strategy.description}}</view>
+    <view class="meta-row">
+      <view><text class="meta-label">策略类别</text><text>{{strategy.category}}</text></view>
+      <view><text class="meta-label">适用周期</text><text>{{strategy.period}}</text></view>
+    </view>
+  </view>
+  <view class="performance-panel">
+    <block wx:if="{{hasPerformance}}">
+      <view class="performance-label">近 1 年参考收益</view>
+      <view class="return-value">{{performance.totalReturn}}</view>
+      <canvas type="2d" id="header-sparkline" class="header-sparkline"></canvas>
+      <view class="performance-grid">
+        <view><text>最大回撤</text><text class="metric-strong">{{performance.maxDrawdown}}</text></view>
+        <view><text>胜率</text><text class="metric-strong">{{performance.winRate}}</text></view>
+      </view>
+    </block>
+    <view wx:else class="empty-performance">
+      <view class="performance-label">近 1 年参考收益</view>
+      <view class="empty-value">--</view>
+      <view class="empty-sparkline">
+        <view class="empty-line line-one"></view>
+        <view class="empty-line line-two"></view>
+        <view class="empty-line line-three"></view>
+      </view>
+      <view class="performance-grid empty-metrics">
+        <view><text>最大回撤</text><text class="metric-strong">--</text></view>
+        <view><text>胜率</text><text class="metric-strong">--</text></view>
+      </view>
+      <view class="empty-caption">完成一次真实回测后自动更新</view>
+    </view>
+  </view>
+</view>

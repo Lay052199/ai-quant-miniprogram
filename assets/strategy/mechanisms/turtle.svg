@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260">
+  <defs>
+    <linearGradient id="bgt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f7faff"/><stop offset="1" stop-color="#f3efff"/></linearGradient>
+    <linearGradient id="price" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#4d7fff"/><stop offset="1" stop-color="#a15cff"/></linearGradient>
+  </defs>
+  <rect width="720" height="260" rx="28" fill="url(#bgt)"/>
+  <path d="M42 74H412V54H526V36H682" fill="none" stroke="#9a67ff" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 6"/>
+  <path d="M42 193H291V178H474V163H682" fill="none" stroke="#6f91df" stroke-width="3" stroke-linecap="round" stroke-dasharray="8 6"/>
+  <path d="M42 157L91 139 139 165 184 124 235 143 283 109 327 134 371 92 413 108 453 65 493 77 532 39 571 57 617 29 682 42" fill="none" stroke="url(#price)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M526 75V32M526 32L512 49M526 32L540 49" fill="none" stroke="#25aa64" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="526" cy="75" r="10" fill="#fff" stroke="#25aa64" stroke-width="3"/>
+  <text x="548" y="96" fill="#23995c" font-size="19" font-family="sans-serif">突破通道 · 跟随趋势</text>
+</svg>

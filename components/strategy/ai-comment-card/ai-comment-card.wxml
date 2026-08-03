@@ -1,0 +1,16 @@
+<view class="ai-comment-card">
+  <view class="ai-avatar">
+    <view class="antenna"></view>
+    <view class="robot-ear ear-left"></view>
+    <view class="robot-ear ear-right"></view>
+    <view class="robot-face">
+      <view class="robot-eye"></view>
+      <view class="robot-eye"></view>
+    </view>
+    <view class="robot-base"></view>
+  </view>
+  <view class="ai-content">
+    <view class="ai-title">AI 策略导师点评</view>
+    <view class="ai-paragraph" wx:for="{{comments}}" wx:key="*this">{{item}}</view>
+  </view>
+</view>

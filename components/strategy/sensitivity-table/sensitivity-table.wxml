@@ -1,0 +1,18 @@
+<view class="sensitivity-wrap">
+  <view wx:if="{{rows.length}}" class="sensitivity-table">
+    <view class="table-row table-head">
+      <view wx:for="{{labels}}" wx:key="*this">{{item}}</view>
+    </view>
+    <view class="table-row" wx:for="{{rows}}" wx:key="paramsText">
+      <view>{{item.paramsText}}</view>
+      <view>{{item.annualReturn}}</view>
+      <view>{{item.maxDrawdown}}</view>
+      <view><text class="rating rating-{{item.tone}}">{{item.rating}}</text></view>
+    </view>
+  </view>
+  <view wx:else class="sensitivity-empty">
+    <view class="empty-grid"></view>
+    <view>暂无该策略的真实敏感性结果</view>
+    <text>请在参数优化页运行敏感性分析后查看</text>
+  </view>
+</view>

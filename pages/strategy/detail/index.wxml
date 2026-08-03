@@ -1,0 +1,65 @@
+<view class="detail-page">
+  <image class="detail-background" src="/assets/backgrounds/home-bg.jpg" mode="aspectFill"></image>
+  <view class="detail-glow glow-a"></view>
+  <view class="detail-glow glow-b"></view>
+
+  <view class="detail-header">
+    <button class="back-button" bindtap="goBack"><view class="back-chevron"></view></button>
+    <view class="detail-title">策略详情</view>
+    <view class="header-space"></view>
+  </view>
+
+  <view wx:if="{{fallbackNotice}}" class="fallback-notice">{{fallbackNotice}}</view>
+  <strategy-hero strategy="{{strategy}}" eyebrow="策略研究档案"></strategy-hero>
+
+  <view class="section-stack">
+    <section-card title="策略原理" icon="/assets/icons/bullet-principle.svg">
+      <view class="body-copy">{{strategy.principle}}</view>
+    </section-card>
+
+    <section-card title="适用行情" icon="/assets/icons/bullet-market.svg">
+      <view class="body-copy">{{strategy.market}}</view>
+      <view class="tag-cloud"><text wx:for="{{strategy.tags}}" wx:key="*this" class="soft-tag">{{item}}</text></view>
+    </section-card>
+
+    <section-card title="信号规则" icon="/assets/icons/strategy.svg">
+      <view class="rule-row" wx:for="{{strategy.signalRules}}" wx:key="title">
+        <view class="rule-index">{{index + 1}}</view>
+        <view><view class="rule-title">{{item.title}}</view><view class="rule-copy">{{item.content}}</view></view>
+      </view>
+    </section-card>
+
+    <section-card title="核心参数" icon="/assets/icons/ma.svg">
+      <view class="parameter-grid">
+        <view class="parameter-cell" wx:for="{{parameterRows}}" wx:key="key">
+          <view class="parameter-label">{{item.label}}</view>
+          <view class="parameter-value">{{item.value}} <text>{{item.unit}}</text></view>
+        </view>
+      </view>
+    </section-card>
+
+    <section-card title="策略画像" icon="/assets/icons/bullet-learning.svg">
+      <view class="profile-row" wx:for="{{strategy.profile}}" wx:key="*this"><view class="profile-dot"></view><text>{{item}}</text></view>
+    </section-card>
+  </view>
+
+  <view class="detail-nav-grid">
+    <view class="detail-nav-card" data-page="logic" bindtap="openSection">
+      <view class="nav-icon">01</view><view class="nav-title">深度解析</view><view class="nav-copy">原理、优势与风险</view><view class="nav-arrow">›</view>
+    </view>
+    <view class="detail-nav-card" data-page="performance" bindtap="openSection">
+      <view class="nav-icon">02</view><view class="nav-title">历史表现</view><view class="nav-copy">仅展示真实回测</view><view class="nav-arrow">›</view>
+    </view>
+    <view class="detail-nav-card wide" data-page="optimization" bindtap="openSection">
+      <view class="nav-icon">03</view><view class="nav-title">参数优化</view><view class="nav-copy">真实敏感性分析与参数建议</view><view class="nav-arrow">›</view>
+    </view>
+  </view>
+
+  <view wx:if="{{errorMessage}}" class="detail-error">{{errorMessage}}</view>
+  <view class="sticky-action">
+    <button class="primary-action" loading="{{loading}}" disabled="{{loading}}" bindtap="useStrategy">
+      <view class="action-play"><view class="play-triangle"></view></view>
+      <text>使用该策略</text>
+    </button>
+  </view>
+</view>

@@ -1,0 +1,132 @@
+<view class="strategy-page">
+  <image class="page-background" src="/assets/backgrounds/home-bg.jpg" mode="aspectFill"></image>
+  <view class="page-glow glow-left"></view>
+  <view class="page-glow glow-right"></view>
+
+  <view class="library-hero">
+    <image class="library-hero-art" src="/assets/images/strategy-library-banner.jpg" mode="aspectFill"></image>
+    <view class="library-hero-overlay"></view>
+    <view class="library-hero-content">
+      <view class="library-title">策略库</view>
+      <view class="library-subtitle">精选优质量化策略，助力科学投资决策</view>
+      <view class="hero-tool-row">
+        <view class="strategy-search">
+          <image class="search-icon" src="/assets/icons/search.svg" mode="aspectFit"></image>
+          <input class="search-input" value="{{searchQuery}}" placeholder="搜索策略名称或关键词" placeholder-class="search-placeholder" bindinput="onSearchInput" />
+        </view>
+        <button class="filter-button" bindtap="onFilterTap">
+          <image class="filter-icon" src="/assets/icons/filter.svg" mode="aspectFit"></image>
+          <text>筛选</text>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{offline}}" class="offline-note">当前使用离线策略说明，策略参数与回测功能仍可正常选择。</view>
+
+  <scroll-view class="category-scroll" scroll-x enable-flex show-scrollbar="{{false}}">
+    <view class="category-tabs">
+      <view class="category-tab {{selectedCategory === item.key ? 'active' : ''}}" wx:for="{{categories}}" wx:key="key" data-key="{{item.key}}" bindtap="onCategoryTap">
+        <image wx:if="{{item.hot}}" class="category-hot-icon" src="/assets/icons/flame.svg" mode="aspectFit"></image>
+        <text>{{item.label}}</text>
+      </view>
+    </view>
+  </scroll-view>
+  <view wx:if="{{categoryNotice}}" class="category-notice">{{categoryNotice}}</view>
+
+  <view class="featured-card" data-key="ma" bindtap="openStrategyDetail">
+    <view class="featured-light"></view>
+    <view class="featured-header">
+      <view class="featured-badge">
+        <image class="featured-badge-icon" src="/assets/icons/flame.svg" mode="aspectFit"></image>
+        <text>本周推荐策略</text>
+      </view>
+      <view class="risk-pill low-risk">低风险</view>
+    </view>
+    <view class="featured-body">
+      <view class="featured-copy">
+        <view class="featured-name">双均线策略</view>
+        <view class="featured-description">经典趋势跟踪策略，简单有效易于实现</view>
+        <view class="tag-row">
+          <text class="strategy-tag" wx:for="{{featuredStrategy.featureTags}}" wx:key="*this">{{item}}</text>
+        </view>
+        <button class="featured-action" data-key="ma" catchtap="useStrategy">使用该策略</button>
+      </view>
+      <view class="featured-performance">
+        <view class="performance-label">近1年参考收益</view>
+        <view class="performance-return">+15.2%</view>
+        <image class="featured-sparkline" src="/assets/charts/total-return-sparkline.svg" mode="aspectFit"></image>
+        <view class="performance-stats">
+          <view class="performance-stat"><text class="performance-stat-label">回撤</text><view class="performance-stat-value">9.8%</view></view>
+          <view class="performance-divider"></view>
+          <view class="performance-stat"><text class="performance-stat-label">胜率</text><view class="performance-stat-value">62.3%</view></view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="strategy-section-header">
+    <view>
+      <view class="section-title">全部策略</view>
+      <view class="section-caption">精选适合学习与研究的经典量化模型</view>
+    </view>
+    <text class="strategy-count">{{visibleCards.length}} 个策略</text>
+  </view>
+
+  <view wx:if="{{!visibleCards.length}}" class="empty-search">
+    <view class="empty-search-title">没有找到相关策略</view>
+    <text class="empty-search-text">可以尝试更换名称或关键词。</text>
+  </view>
+
+  <view class="strategy-list-card" wx:for="{{visibleCards}}" wx:key="key" wx:for-item="strategyCard" data-key="{{strategyCard.key}}" bindtap="openStrategyDetail">
+    <image class="strategy-icon" src="{{strategyCard.icon}}" mode="aspectFit"></image>
+    <view class="strategy-main">
+      <view class="strategy-name-row">
+        <text class="strategy-name">{{strategyCard.name}}</text>
+        <text class="risk-pill {{strategyCard.riskTone}}">{{strategyCard.risk}}</text>
+      </view>
+      <view class="strategy-description">{{strategyCard.description}}</view>
+      <view class="market-line"><text class="market-label">适用行情</text><text>{{strategyCard.market}}</text></view>
+      <view class="tag-row compact-tags">
+        <text class="strategy-tag" wx:for="{{strategyCard.tags}}" wx:key="*this" wx:for-item="tag">{{tag}}</text>
+      </view>
+    </view>
+    <view class="strategy-metrics">
+      <view class="strategy-metric return-metric"><text class="strategy-metric-label">近1年参考收益</text><view class="strategy-metric-value">{{strategyCard.referenceReturn}}</view></view>
+      <view class="strategy-metric"><text class="strategy-metric-label">回撤</text><view class="strategy-metric-value">{{strategyCard.drawdown}}</view></view>
+      <view class="strategy-metric"><text class="strategy-metric-label">信号频率</text><view class="strategy-metric-value">{{strategyCard.frequency}}</view></view>
+      <view class="strategy-use-button" data-key="{{strategyCard.key}}" catchtap="useStrategy">使用该策略</view>
+    </view>
+    <button class="favorite-button" data-key="{{strategyCard.key}}" catchtap="toggleFavorite">
+      <image class="favorite-icon" src="{{strategyCard.favorite ? '/assets/icons/bookmark-active.svg' : '/assets/icons/bookmark.svg'}}" mode="aspectFit"></image>
+    </button>
+  </view>
+
+  <view class="bottom-insight-grid">
+    <view class="insight-card preview-card">
+      <view class="insight-heading"><text class="insight-heading-title">策略详情预览</text><view class="insight-heading-link" data-key="ma" bindtap="openStrategyDetail">查看更多 ›</view></view>
+      <view class="preview-name-row">
+        <image class="preview-icon" src="/assets/icons/strategy-ma.svg" mode="aspectFit"></image>
+        <view class="preview-name-copy"><text class="preview-strategy-name">双均线策略</text><view class="risk-pill low-risk">低风险</view></view>
+      </view>
+      <view class="preview-description">短期均线上穿长期均线时做多，反之做空。</view>
+      <view class="preview-detail"><text class="preview-detail-label">信号频率</text><view class="dot-level"><view class="level-dot filled"></view><view class="level-dot filled"></view><view class="level-dot"></view></view><text class="detail-value">中等</text></view>
+      <view class="preview-detail"><text class="preview-detail-label">适用品种</text><text class="detail-value">股票、期货、ETF</text></view>
+      <view class="preview-detail"><text class="preview-detail-label">学习难度</text><view class="star-level">★★☆☆☆</view></view>
+      <view class="preview-detail"><text class="preview-detail-label">策略稳定性</text><view class="star-level">★★★★☆</view></view>
+    </view>
+
+    <view class="insight-card recent-card">
+      <view class="insight-heading"><text class="insight-heading-title">最近使用</text><view class="insight-heading-link" bindtap="openRecentHistory">更多 ›</view></view>
+      <view class="recent-item" wx:for="{{recentStrategies}}" wx:key="key" wx:for-item="recent">
+        <view class="recent-copy">
+          <view class="recent-name">{{recent.name}}</view>
+          <view class="recent-time">{{recent.time}}</view>
+        </view>
+        <button class="recent-play" data-key="{{recent.key}}" bindtap="useStrategy">
+          <image class="recent-play-icon" src="/assets/icons/play-circle.svg" mode="aspectFit"></image>
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

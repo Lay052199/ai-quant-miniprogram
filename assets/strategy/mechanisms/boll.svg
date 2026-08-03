@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 260">
+  <defs>
+    <linearGradient id="bgb" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f6f9ff"/><stop offset="1" stop-color="#f5f1ff"/></linearGradient>
+    <linearGradient id="band" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#8d72ff" stop-opacity=".18"/><stop offset="1" stop-color="#5b8cff" stop-opacity=".03"/></linearGradient>
+  </defs>
+  <rect width="720" height="260" rx="28" fill="url(#bgb)"/>
+  <path d="M38 70C112 40 168 48 225 72S344 105 405 77 511 39 567 55 634 85 682 64L682 204C625 224 584 194 535 190S432 220 367 196 270 158 213 180 101 221 38 194Z" fill="url(#band)"/>
+  <path d="M38 70C112 40 168 48 225 72S344 105 405 77 511 39 567 55 634 85 682 64" fill="none" stroke="#9b67ff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M38 194C101 221 156 202 213 180S310 172 367 196 470 204 535 190 625 224 682 204" fill="none" stroke="#6990ff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M38 132C99 114 157 127 215 126S315 145 373 133 466 113 530 125 621 145 682 132" fill="none" stroke="#a7b3d7" stroke-width="2" stroke-dasharray="7 7"/>
+  <path d="M38 160C77 145 102 92 139 112S187 181 225 151 277 87 319 108 366 184 410 144 457 75 502 104 544 171 587 138 643 96 682 113" fill="none" stroke="#526dff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="410" cy="144" r="8" fill="#fff" stroke="#526dff" stroke-width="3"/>
+</svg>

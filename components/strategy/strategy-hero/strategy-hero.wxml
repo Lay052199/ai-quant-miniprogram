@@ -1,0 +1,15 @@
+<view class="strategy-hero">
+  <view class="hero-glow"></view>
+  <strategy-icon src="{{strategy.icon}}" size="96"></strategy-icon>
+  <view class="hero-copy">
+    <view class="hero-eyebrow">{{eyebrow}}</view>
+    <view class="hero-name-row">
+      <text class="hero-name">{{strategy.name}}</text>
+      <risk-tag label="{{strategy.risk}}" tone="{{strategy.riskTone}}"></risk-tag>
+    </view>
+    <view class="hero-summary">{{strategy.summary}}</view>
+    <view class="hero-tags">
+      <text class="hero-tag" wx:for="{{strategy.tags}}" wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+.parameter-card {
+  min-height: 96rpx;
+  padding: 14rpx 18rpx;
+  box-sizing: border-box;
+  border: 1rpx solid rgba(122, 143, 220, 0.2);
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.84);
+}
+.parameter-head { display: flex; align-items: center; justify-content: space-between; gap: 12rpx; }
+.parameter-name { color: #29406f; font-size: 21rpx; font-weight: 680; }
+.parameter-name text { margin-left: 6rpx; color: #526dff; }
+.parameter-badge { flex: 0 0 auto; padding: 5rpx 11rpx; border-radius: 999rpx; background: #eef2ff; color: #526dff; font-size: 16rpx; }
+.parameter-impact { margin-top: 8rpx; color: #7b88aa; font-size: 18rpx; line-height: 1.45; }

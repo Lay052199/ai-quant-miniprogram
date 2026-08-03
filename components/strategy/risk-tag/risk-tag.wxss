@@ -1,0 +1,1 @@
+.risk-tag{display:inline-flex;padding:6rpx 13rpx;border-radius:18rpx;font-size:19rpx;line-height:1.2}.low-risk{color:#315ddd;background:rgba(232,239,255,.94)}.medium-risk{color:#c87518;background:rgba(255,243,220,.96)}.high-risk{color:#dc5260;background:rgba(255,232,235,.96)}

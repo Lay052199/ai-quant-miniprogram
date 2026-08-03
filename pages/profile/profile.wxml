@@ -1,0 +1,22 @@
+<view class="profile-page">
+  <view class="profile-hero"><view class="logo">Q</view><view><text>QuantLabAI</text><view>量化研究与模拟分析</view></view></view>
+  <view class="info-card">
+    <view class="title">项目用途</view>
+    <view class="paragraph">用于 A 股个股历史回测、策略学习、风险分析和参数比较。</view>
+  </view>
+  <view class="info-card">
+    <view class="title">数据来源</view>
+    <view class="row"><text>真实行情</text><text>AKShare</text></view>
+    <view class="row"><text>离线备用</text><text>本地缓存 / 演示数据</text></view>
+    <view class="row"><text>最近结果</text><text>{{resultTime}}</text></view>
+  </view>
+  <view class="info-card">
+    <view class="title">服务状态</view>
+    <view class="row"><text>后端连接</text><text>{{healthStatus}}</text></view>
+    <button bindtap="checkService">检查连接</button>
+  </view>
+  <view class="info-card">
+    <view class="title">免责声明</view>
+    <view class="paragraph">历史回测不代表未来表现。所有结果仅用于学习、研究与模拟分析，不构成投资建议。</view>
+  </view>
+</view>

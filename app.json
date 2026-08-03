@@ -1,14 +1,54 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/backtest/backtest",
+    "pages/results/results",
+    "pages/strategies/strategies",
+    "pages/profile/profile",
+    "pages/strategy/history/history",
+    "pages/strategy/detail/index",
+    "pages/strategy/detail/logic",
+    "pages/strategy/detail/performance",
+    "pages/strategy/detail/optimization"
   ],
   "window": {
     "navigationBarTitleText": "AI 量化回测助手",
-    "cloud": true,
-    "navigationBarBackgroundColor": "#0f172a",
-    "navigationBarTextStyle": "white",
-    "backgroundColor": "#f4f7fb",
+    "navigationBarBackgroundColor": "#f7f9ff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f5f7ff",
     "backgroundTextStyle": "light"
+  },
+  "cloud": true,
+  "tabBar": {
+    "color": "#7c87a8",
+    "selectedColor": "#4263f3",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/backtest/backtest",
+        "text": "回测",
+        "iconPath": "assets/tab/home.png",
+        "selectedIconPath": "assets/tab/home-active.png"
+      },
+      {
+        "pagePath": "pages/results/results",
+        "text": "结果",
+        "iconPath": "assets/tab/result.png",
+        "selectedIconPath": "assets/tab/result-active.png"
+      },
+      {
+        "pagePath": "pages/strategies/strategies",
+        "text": "策略",
+        "iconPath": "assets/tab/strategy.png",
+        "selectedIconPath": "assets/tab/strategy-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "assets/tab/profile.png",
+        "selectedIconPath": "assets/tab/profile-active.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

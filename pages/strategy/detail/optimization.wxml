@@ -1,0 +1,54 @@
+<view class="optimization-page">
+  <image class="optimization-background" src="/assets/backgrounds/home-bg.jpg" mode="aspectFill"></image>
+  <view class="optimization-header">
+    <button class="back-button" bindtap="goBack"><view class="back-chevron"></view></button>
+    <view class="optimization-title">参数优化</view><view class="header-space"></view>
+  </view>
+
+  <strategy-hero strategy="{{strategy}}" eyebrow="真实参数敏感性"></strategy-hero>
+
+  <view class="optimization-stack">
+    <section-card title="当前参数" subtitle="来自回测页保存的参数">
+      <view class="current-grid">
+        <view class="current-cell" wx:for="{{currentParameters}}" wx:key="key">
+          <view class="current-label">{{item.label}}</view><view class="current-value">{{item.value}} <text>{{item.unit}}</text></view>
+        </view>
+      </view>
+    </section-card>
+
+    <section-card title="参数敏感性分析" subtitle="每一项均来自真实接口回测">
+      <view wx:if="{{state === 'loading'}}" class="state-panel"><view class="loading-ring"></view><text>正在计算真实参数组合…</text></view>
+      <view wx:elif="{{state === 'idle'}}" class="state-panel">
+        <view class="state-title">需要先完善回测条件</view><view class="state-copy">{{statusMessage}}</view>
+        <button class="state-action" bindtap="goToBacktest">前往回测页</button>
+      </view>
+      <view wx:elif="{{state === 'error'}}" class="state-panel error-state">
+        <view class="state-title">参数分析暂不可用</view><view class="state-copy">{{statusMessage}}</view>
+        <button class="state-action secondary" bindtap="loadSensitivity">重新尝试</button>
+      </view>
+      <view wx:elif="{{state === 'empty'}}" class="state-panel"><view class="state-title">暂无可用推荐</view><view class="state-copy">{{statusMessage}}</view></view>
+      <view wx:else class="comparison-list">
+        <view class="comparison-row" wx:for="{{comparisonRows}}" wx:key="key">
+          <view class="comparison-head"><view class="comparison-label">{{item.label}}</view><view class="comparison-return">{{item.returnText}}</view></view>
+          <view class="parameter-text">{{item.parameterText}}</view>
+          <view class="comparison-track"><view class="comparison-fill" style="width:{{item.barWidth}}%"></view></view>
+          <view class="comparison-meta"><text>回撤 {{item.drawdownText}}</text><text>夏普 {{item.sharpeText}}</text></view>
+        </view>
+      </view>
+    </section-card>
+
+    <section-card title="最优参数推荐" subtitle="仅根据本次真实样本比较">
+      <view wx:if="{{best}}" class="best-card">
+        <view class="best-badge">当前最优</view>
+        <view class="best-title">{{best.label}} · {{best.returnText}}</view>
+        <view class="best-params">{{best.parameterText}}</view>
+        <view class="best-metrics"><text>最大回撤 {{best.drawdownText}}</text><text>夏普 {{best.sharpeText}}</text></view>
+        <button class="apply-action" bindtap="applyRecommendedParams">应用推荐参数</button>
+      </view>
+      <view wx:else class="no-best">暂无可用推荐</view>
+    </section-card>
+  </view>
+
+  <view wx:if="{{errorMessage}}" class="optimization-error">{{errorMessage}}</view>
+  <view class="sticky-action"><button class="primary-action" loading="{{loading}}" disabled="{{loading}}" bindtap="useStrategy">使用该策略</button></view>
+</view>

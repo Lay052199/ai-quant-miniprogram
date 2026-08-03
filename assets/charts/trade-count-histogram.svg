@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="52" viewBox="0 0 180 52" fill="none">
+  <defs>
+    <linearGradient id="bars" x1="8" y1="8" x2="172" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A58AF8"/>
+      <stop offset=".52" stop-color="#8A6AF3"/>
+      <stop offset="1" stop-color="#6681F2"/>
+    </linearGradient>
+    <linearGradient id="fade" x1="0" y1="4" x2="0" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity=".34"/>
+    </linearGradient>
+  </defs>
+  <path d="M8 47.25H172" stroke="#8897C8" stroke-opacity=".13" stroke-width=".75"/>
+  <rect x="10" y="33" width="7" height="14" rx="3.5" fill="url(#bars)" fill-opacity=".7"/>
+  <rect x="24" y="23" width="7" height="24" rx="3.5" fill="url(#bars)" fill-opacity=".82"/>
+  <rect x="38" y="29" width="7" height="18" rx="3.5" fill="url(#bars)" fill-opacity=".72"/>
+  <rect x="52" y="17" width="7" height="30" rx="3.5" fill="url(#bars)" fill-opacity=".9"/>
+  <rect x="66" y="26" width="7" height="21" rx="3.5" fill="url(#bars)" fill-opacity=".78"/>
+  <rect x="80" y="10" width="7" height="37" rx="3.5" fill="url(#bars)"/>
+  <rect x="94" y="30" width="7" height="17" rx="3.5" fill="url(#bars)" fill-opacity=".72"/>
+  <rect x="108" y="21" width="7" height="26" rx="3.5" fill="url(#bars)" fill-opacity=".86"/>
+  <rect x="122" y="14" width="7" height="33" rx="3.5" fill="url(#bars)" fill-opacity=".94"/>
+  <rect x="136" y="27" width="7" height="20" rx="3.5" fill="url(#bars)" fill-opacity=".76"/>
+  <rect x="150" y="19" width="7" height="28" rx="3.5" fill="url(#bars)" fill-opacity=".88"/>
+  <rect x="164" y="25" width="7" height="22" rx="3.5" fill="url(#bars)" fill-opacity=".8"/>
+  <path d="M8 48H172V6C163 10 157 13 148 15C136 18 129 19 118 17C107 15 97 12 87 13C76 15 68 21 57 22C47 23 38 19 28 22C19 25 13 30 8 34V48Z" fill="url(#fade)" opacity=".16"/>
+</svg>

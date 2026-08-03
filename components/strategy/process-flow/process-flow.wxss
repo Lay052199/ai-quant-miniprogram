@@ -1,0 +1,39 @@
+.process-flow {
+  display: grid;
+  grid-template-columns: repeat(11, auto);
+  align-items: start;
+  padding: 4rpx 0 0;
+}
+.process-step { min-width: 0; text-align: center; }
+.process-icon {
+  position: relative;
+  width: 56rpx;
+  height: 56rpx;
+  margin: 0 auto;
+  border: 1rpx solid rgba(82, 109, 255, 0.24);
+  border-radius: 16rpx;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 6rpx 14rpx rgba(74, 93, 164, 0.075);
+}
+.glyph { position: absolute; display: block; border-radius: 5rpx; background: linear-gradient(135deg, #5b8cff, #8d6bff); }
+.glyph-a { left: 14rpx; bottom: 13rpx; width: 5rpx; height: 18rpx; }
+.glyph-b { left: 25rpx; bottom: 13rpx; width: 5rpx; height: 29rpx; }
+.glyph-c { left: 36rpx; bottom: 13rpx; width: 5rpx; height: 23rpx; }
+.icon-wave .glyph, .icon-formula .glyph, .icon-channel .glyph { width: 29rpx; height: 3rpx; left: 13rpx; transform: rotate(-12deg); }
+.icon-wave .glyph-a, .icon-formula .glyph-a, .icon-channel .glyph-a { top: 18rpx; }
+.icon-wave .glyph-b, .icon-formula .glyph-b, .icon-channel .glyph-b { top: 28rpx; transform: rotate(10deg); background: #54c8d6; }
+.icon-wave .glyph-c, .icon-formula .glyph-c, .icon-channel .glyph-c { top: 37rpx; }
+.icon-cross .glyph-a, .icon-cross .glyph-b { left: 12rpx; top: 15rpx; width: 24rpx; height: 24rpx; border: 2rpx solid #5b8cff; border-radius: 50%; background: transparent; }
+.icon-cross .glyph-b { left: 25rpx; border-color: #8d6bff; }
+.icon-cross .glyph-c { display: none; }
+.icon-bell .glyph-a { left: 17rpx; top: 15rpx; width: 22rpx; height: 24rpx; border: 2rpx solid #6b78ff; border-radius: 14rpx 14rpx 7rpx 7rpx; background: transparent; }
+.icon-bell .glyph-b { left: 24rpx; top: 9rpx; width: 8rpx; height: 8rpx; border-radius: 50%; }
+.icon-bell .glyph-c { left: 25rpx; bottom: 8rpx; width: 7rpx; height: 7rpx; border-radius: 50%; }
+.icon-trade .glyph-a, .icon-trade .glyph-b { left: 16rpx; top: 14rpx; width: 3rpx; height: 28rpx; transform: rotate(0); }
+.icon-trade .glyph-b { left: 36rpx; background: #8d6bff; }
+.icon-trade .glyph-c { left: 20rpx; top: 25rpx; width: 17rpx; height: 3rpx; }
+.icon-chart .glyph-a { left: 14rpx; bottom: 14rpx; width: 29rpx; height: 3rpx; transform: rotate(-25deg); }
+.icon-chart .glyph-b { left: 31rpx; bottom: 24rpx; width: 15rpx; height: 3rpx; transform: rotate(22deg); }
+.icon-chart .glyph-c { display: none; }
+.process-title { max-width: 82rpx; margin: 8rpx auto 0; color: #38486f; font-size: 16rpx; line-height: 1.35; }
+.process-arrow { align-self: center; margin: 13rpx 0 0; color: #8fa0cc; font-size: 22rpx; font-weight: 300; }
